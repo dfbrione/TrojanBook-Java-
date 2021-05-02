@@ -1,5 +1,7 @@
 package com.DanielBriones;
 
+//All methods copied from C++;
+
 public class Date {
     enum MONTH_TYPE {
         Jan(1),
@@ -27,6 +29,7 @@ public class Date {
 
 
     };
+
     private int day, month, year;
 
 
@@ -36,13 +39,13 @@ public class Date {
         year = 1;
     }
 
-    public Date(int d, int m, int y){
-        setDate(d,m,y);
+    public Date(int m, int d, int y){
+        setDate(m,d,y);
     }
 
 
-    public void setDate(int d, int m, int y){
-        if (checkDate(d, m, y) ){
+    public void setDate(int m, int d, int y){
+        if (checkDate(m, d, y) ){
             day = d;
             month = m;
             year = y;
@@ -87,7 +90,9 @@ public class Date {
 
     }
 
-    private boolean checkDate(int _day, int _month, int _year){
+    private boolean checkDate(int _month, int _day, int _year){
+
+
         if (_day<1 | _day > 31)
             return false;
 
@@ -106,6 +111,7 @@ public class Date {
         if ((_month == MONTH_TYPE.Jan.getValue()) || (_month == MONTH_TYPE.Mar.getValue()) || (_month == MONTH_TYPE.May.getValue()) || (_month == MONTH_TYPE.Jul.getValue()) || (_month == MONTH_TYPE.Aug.getValue()) || (_month == MONTH_TYPE.Oct.getValue()) || (_month == MONTH_TYPE.Dec.getValue())){
             if (_day > 31)
                 return false;
+
         }
 
 
@@ -161,6 +167,13 @@ public class Date {
         return date;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 
-
+    @Override
+    public String toString() {
+        return month + " " + day + " " + year;
+    }
 }
